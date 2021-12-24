@@ -62,3 +62,8 @@ class Todoer:
         write = self._db_handler.write_todos(read.todo_list)
         return CurrentTodo(todo, write.error)
     
+    def remove_all(self) -> CurrentTodo:
+        """Remove all items from the todo list"""
+        # overwrite the db with an empty list
+        write = self._db_handler.write_todos([])
+        return CurrentTodo({}, write.error)

@@ -100,7 +100,7 @@ def list_all() -> None:
     if len(todo_list) == 0:
         typer.secho(
             "There are no tasks in the todo list",
-            fg=typer.colors.RED
+            fg=typer.colors.MAGENTA
         )
         raise typer.Exit(1)
     typer.secho("\nto-do list:\n", fg=typer.colors.BLUE, bold=True)
@@ -192,6 +192,30 @@ def remove(
             _remove()
         else:
             typer.echo("Operation Canceled")
+
+
+@app.command(name="clear")
+def remove_all(
+    force: bool = typer.Option(
+        ...,
+        prompt="Delete all todos?",
+        help="Force deletion without confirmation."
+    )
+) -> None:
+    """Remove add todos"""
+    todoer = get_todoer()
+    if force:
+        error = todoer.remove_all().error
+        if error:
+            typer.secho(
+                f'Removing todos failed with "{ERRORS[error]}"',
+                fg=typer.colors.RED
+            )
+            raise typer.Exit(1)
+        else:
+            typer.secho("All todos were removed", fg=typer.colors.GREEN)
+    else:
+        typer.echo("Operation canceled")
 
 
 @app.callback()
