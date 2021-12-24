@@ -37,7 +37,7 @@ class DBResponse(NamedTuple):
         "Done": True,
     }
     """
-    todo_list = List[Dict[str, any]]
+    todo_list: List[Dict[str, any]]
     error: int
 
 class DatabaseHandler:
