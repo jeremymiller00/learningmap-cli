@@ -1,11 +1,11 @@
 """This module provides the todo controller"""
-# pytodo/pytodo.py
+# lmcli/lmcli.py
 
 from pathlib import Path
 from typing import Any, Dict, List, NamedTuple
 
-from pytodo import DB_READ_ERROR, ID_ERROR
-from pytodo.database import DatabaseHandler
+from lmcli import DB_READ_ERROR, ID_ERROR
+from lmcli.database import DatabaseHandler
 
 class CurrentTodo(NamedTuple):
     todo: Dict[str, Any]

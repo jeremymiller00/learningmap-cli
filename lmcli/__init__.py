@@ -1,7 +1,7 @@
 """Top-level package for Pytodo"""
-# pytodo/__init__.py
+# lmcli/__init__.py
 
-__app_name__ = "pytodo"
+__app_name__ = "lmcli"
 __version__ = "0.1.0"
 
 (

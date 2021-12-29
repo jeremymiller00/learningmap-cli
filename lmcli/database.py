@@ -1,12 +1,12 @@
-"""This module provide Pytodo database functionality"""
-# pytodo/database.py
+"""This module provide lmcli database functionality"""
+# lmcli/database.py
 
 import json
 import configparser
 from pathlib import Path
 from typing import Any, Dict, List, NamedTuple
 
-from pytodo import DB_READ_ERROR, DB_WRITE_ERROR, JSON_ERROR, SUCCESS
+from lmcli import DB_READ_ERROR, DB_WRITE_ERROR, JSON_ERROR, SUCCESS
 
 DEFAULT_DB_FILE_PATH = Path.home().joinpath(
     "." + Path.home().stem + "_todo.json"

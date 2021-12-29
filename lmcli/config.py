@@ -1,10 +1,10 @@
-"""This module provides the pytodo config functionality"""
-# pytodo/config.py
+"""This module provides the lmcli config functionality"""
+# lmcli/config.py
 
 import configparser
 from pathlib import Path
 import typer
-from pytodo import (
+from lmcli import (
     DB_WRITE_ERROR, DB_READ_ERROR, DIR_ERROR, FILE_ERROR, SUCCESS, __app_name__
 )
 

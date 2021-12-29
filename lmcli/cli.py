@@ -1,5 +1,5 @@
-"""This module provides the Pytodo CLI, aka view"""
-# pytodo/cli.py
+"""This module provides the lmcli CLI, aka view"""
+# lmcli/cli.py
 
 from pathlib import Path
 import re
@@ -9,13 +9,13 @@ from click.exceptions import Exit
 import typer
 from typer import colors
 
-from pytodo import (
+from lmcli import (
     ERRORS, 
     __app_name__, 
     __version__, 
     config, 
     database,
-    pytodo
+    lmcli
 )
 
 app = typer.Typer()
@@ -51,20 +51,20 @@ def init(
         )
 
 
-def get_todoer() -> pytodo.Todoer:
+def get_todoer() -> lmcli.Todoer:
     if config.CONFIG_FILE_PATH.exists():
         db_path = database.get_database_path(config.CONFIG_FILE_PATH)
     else:
         typer.secho(
-            'Config file not found. Please run "pytodo init"',
+            'Config file not found. Please run "lmcli init"',
             fg=typer.colors.RED
         )
         raise typer.Exit(1)
     if db_path.exists():
-        return pytodo.Todoer(db_path)
+        return lmcli.Todoer(db_path)
     else:
         typer.secho(
-            'Database not found. Please run "pytodo init"',
+            'Database not found. Please run "lmcli init"',
             fg=typer.colors.RED
         )
         raise typer.Exit(1)
